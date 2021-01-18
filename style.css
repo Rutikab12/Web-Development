@@ -1,84 +1,99 @@
 body{
-	background: #666;
-	color: #fff;
-	font-family: arial;
-	line-height:1.4em;
+	background:#f4f4f4;
 }
 
-a{
-	color:#fff;
-	text-decoration: none;
+.menu{
+	width:600px;
+	position:absolute;
 }
 
-ul{
-	padding: 0;
-}
-
-.clr{
-    clear: both;
-}
-
-#container{
-	background: #333;
-	width: 960px;
-	margin: 30px auto;
-	overflow: hidden;
-	padding: 10px;
-}
-
-#nav{
-	height:40px;
-	background: #666;
-}
-
-#nav ul{
-	padding-top:13px;
-	padding-left: 10px;
-}
-
-#nav li{
+.menu ul{
 	list-style: none;
-	float: left;
-	padding-right: 
 }
 
-#nav .active{
-	font-weight: bold;
-	color: #000;
+.menu ul li{
+	background:#f4f4f4;
+	border: 1px solid #b7b7b7;
+	display:block;
+	float:left;
+	font: bold 12px arial;
+	height:40px;
+	line-height:40px;
+	overflow:hidden;
+	padding-left:15px;
+	position:absolute;
+	width:135px;
+	z-index:10000;
+	box-shadow: 0px 3px 5px #d2d2d2;
+	background: linear-gradient(top, #ffffff 0%, #f2f2f2 50%, #e1e1e1 51%, #f6f6f6 100%);
 }
 
-#main{
-	float: left;
-	width: 60%;	
+.menu ul li:hover{
+	background: linear-gradient(top, #ffffff 0%, #f4f4f4 50%, #ededed 51%, #ffffff 100%);
 }
 
-#sidebar{
-	float: right;
-	width: 30%;
-	background: #666;
-	margin-top: 20px;
-	padding: 20px;
+.menu ul li:first-child{
+	border-radius: 4px 0 0 4px;
 }
 
-#footer{
-	text-align: center;
-	padding: 10px;
-	background: #666;
-	margin-top: 30px;
+.menu ul li:last-child{
+	border-radius: 0 4px 4px 0;
 }
 
-.servies li{
-	border-bottom: 2px #666 dashed;
-	padding-bottom:20px; 
+.menu ul li#b{
+	margin-left:150px;
 }
 
-.services a{
-	background: #666;
-	padding: 10px;
+.menu ul li#c{
+	margin-left:300px;
 }
 
-input, textarea{
-    width: 100px;
-    padding: 5px;
-    margin-bottom: 15px;	
+.menu ul li a{
+	display:block;
+	text-decoration: none;
+	color:#303030;
+}
+
+.menu ul li div{
+	text-align:left;
+	font: normal 11px arial;
+	line-height: 19px;
+	margin: 10px 0;
+}
+
+.menu ul li div a{
+	display:inline;
+}
+
+.menu ul li div a:hover{
+	text-decoration: underline;
+}
+
+.menu ul li div hr{
+	border:none;
+	border-top:1px dotted #a0a0a0;
+	margin:5px 0;
+	width:95%;
+}
+
+.menu ul li:hover:target{
+	display:inherit;
+	padding:0;
+	height:155px;
+	width:200px;
+	padding-left:15px;
+	opacity:.97;
+	transition:height 0.4s ease-in;
+}
+
+.menu ul li#a:hover:target{
+	background:#f0f9ff;
+}
+
+.menu ul li#b:hover:target{
+	background:#ffffd6;
+}
+
+.menu ul li#c:hover:target{
+	background:#f8ffe8;
 }
