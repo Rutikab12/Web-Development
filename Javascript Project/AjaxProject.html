@@ -1,1 +1,108 @@
+Skip to content
+Search or jump to…
+
+Pull requests
+Issues
+Marketplace
+Explore
+ 
+@Rutikab12 
+Rutikab12
+/
+Web-Development
+1
+0
+0
+Code
+Issues
+Pull requests
+Actions
+Projects
+Wiki
+Security
+Insights
+Settings
+Web-Development/index.html
+@Rutikab12
+Rutikab12 Add files via upload
+…
+Latest commit 4b94312 yesterday
+ History
+ 1 contributor
+66 lines (59 sloc)  1.97 KB
+  
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Github Profile Finder</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<style>
+		img{width:50%;}
+	</style>
+</head>
+<body>
+ <div class="container">
+   <form class="userForm">
+   	<div class="form-group">
+   		<label>Github Username:</label>
+   		<input type="text" id="username" class="form-control">
+   	</div>
+ </div>  	
+   </form>	
+  <div id="profile"></div>  
+  <script>
+  	function getProfile(e){
+        e.preventDefault();
+  		console.log("Fetching....");
+
+  		var username ="rutikab12";
+  		var xhttp= new XMLHttpRequest();
+  		xhttp.onreadystatechange = function(){
+  			if(xhttp.readyState == 4 && xhttp.status == 200){
+  				var user =  JSON.parse(xhttp.responseText);
+  				document.getElementById('profile').innerHTML = `<div class="panel panel-default">
+  								<div class="panel-heading">
+    							<h3 class="panel-title">${user.name}</h3>
+  								</div>
+  								<div class="panel-body">
+    								<div class="row">
+    								<div class="col-md-3">
+    								<img src="${user.avatar_url}">
+    								</div>
+    								<div class="col-md-9">
+    									<span class="label label-primary">Public Repos ${user.public_repos}</span>
+    									<span class="label label-danger">Public Gists ${user.public_gists}</span>
+    									<br><br>
+    									<ul class="list-group">
+    										<li class="list-group-item">Website: ${user.blog}</li>
+    										<li class="list-group-item">Email: ${user.email}</li>
+    									</ul>
+    									<a class="btn btn-default" target="_blank" href="${user.html_url}">Visit Github</a>
+    								</div>
+    								</div>
+  								</div>
+							</div>`;
+  			}
+  		}
+  		xhttp.open("GET","https://api.github.com/users/"+ username, true);
+  		xhttp.send();
+  	}
+
+  	document.getElementById('userForm').addEventListener('submit',getProfile, false);
+
+  </script>
+</body>
+</html>
+© 2021 GitHub, Inc.
+Terms
+Privacy
+Security
+Status
+Docs
+Contact GitHub
+Pricing
+API
+Training
+Blog
+About
 
