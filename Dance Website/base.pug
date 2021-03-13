@@ -1,0 +1,28 @@
+doctype html
+html
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    meta(http-equiv="X-UA-Compatible", content="ie=edge")
+     
+    title My Site
+    block scripts
+    block style
+
+  body
+    nav#navbar
+      ul
+        div#logo
+         img(src="/static/img/logo.png")
+         | DA 
+        li #[a(href="/") Home]
+        li #[a(href="/") About]
+        li #[a(href="/") Services]
+        li #[a(href="/") Class Info]
+        li #[a(href="/contact") Contact Us]
+
+    block content 
+    block foot
+      
+     footer#footer
+      | Copyright © 2021 DA | All rights reserved
