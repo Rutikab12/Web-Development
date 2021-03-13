@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css?family=Yeon+Sung|ZCOOL+QingKe+HuangYou&display=swap');
+h1{
+	text-align: center;
+	margin: 12px 0;
+}
+
+.container{
+	display: flex;
+	align-items: center;
+	min-height: 80vh;
+	flex-direction: column;
+	justify-content: center;
+}
+.container h1{
+	font-family: 'Yeon Sung';
+}
+.myInput{
+	width: 40%;
+	padding:9px;
+	margin: 8px;
+	font-size: 16px;
+	border:2px solid red;
+	border-radius: 12px;
+}
+
+.myForm{
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	justify-content: center;
+	align-items: center;
+}
+
+.btn{
+	padding: 12px 16px;
+	font-size: 18px;
+	border:2px solid red;
+	border-radius: 12px;
+	color: white;
+	background: grey;
+	cursor: pointer;
+}
