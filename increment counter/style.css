@@ -1,0 +1,37 @@
+*{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color:aquamarine;
+}
+
+.container{
+    height: 400px;
+    width: 80%;
+    margin: 280px;
+}
+
+span{
+    font-size: large;
+    font-weight: bolder;
+    color: cadetblue;
+    margin-top: 15px;
+}
+
+.counter-container{
+    float:left; 
+    width:25%;
+    height:280px;
+}
+
+.counter{
+    color: brown;
+    margin: 10px;
+    font-size: larger;
+    font-weight: bold;
+}
+
