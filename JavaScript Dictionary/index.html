@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dictionary Project</title>
+    <link rel="stylesheet" href="./index.css">
+</head>
+
+<body>
+    <nav>
+        <dov class="container">
+            <h1>Word Dictionary</h1>
+        </dov>
+    </nav>
+
+    <section class="input container">
+        <h2>Find any word exist in the world</h2>
+        <div class="font-wrap">
+            <div class="input-wrap">
+                <input type="text" id="input" placeholder="Type a word">
+                <button id="search">Search</button>
+            </div>
+        </div>
+
+    </section>
+
+
+    <section class="data container">
+        <span class="loading">...Loading</span>
+        <p class="def"></p>
+        <div class="audio"></div>
+        <div class="not-found"></div>
+    </section>
+
+    <script src="./app.js"></script>
+</body>
+
+</html>
