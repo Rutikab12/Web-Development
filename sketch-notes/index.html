@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SketchNotes - Visual Note Taking</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <h1 class="app-title">SketchNotes</h1>
+            <div class="header-actions">
+                <button class="btn btn--sm btn--outline" id="new-notebook">New Notebook</button>
+                <button class="btn btn--sm btn--secondary" id="templates-btn">Templates</button>
+                <button class="btn btn--sm btn--primary" id="export-btn">Export</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main App Container -->
+    <div class="app-container">
+        <!-- Left Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <h3>Tools</h3>
+                <button class="sidebar-toggle" id="sidebar-toggle">✕</button>
+            </div>
+
+            <!-- Brush Tools -->
+            <div class="tool-section">
+                <h4>Brush Tools</h4>
+                <div class="tool-grid">
+                    <button class="tool-btn active" data-tool="pen" title="Pen (B)">
+                        <span class="tool-icon">✏️</span>
+                        <span class="tool-name">Pen</span>
+                    </button>
+                    <button class="tool-btn" data-tool="pencil" title="Pencil">
+                        <span class="tool-icon">✎</span>
+                        <span class="tool-name">Pencil</span>
+                    </button>
+                    <button class="tool-btn" data-tool="marker" title="Marker">
+                        <span class="tool-icon">🖍️</span>
+                        <span class="tool-name">Marker</span>
+                    </button>
+                    <button class="tool-btn" data-tool="highlighter" title="Highlighter">
+                        <span class="tool-icon">🖊️</span>
+                        <span class="tool-name">Highlighter</span>
+                    </button>
+                    <button class="tool-btn" data-tool="eraser" title="Eraser (E)">
+                        <span class="tool-icon">🧽</span>
+                        <span class="tool-name">Eraser</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Shape Tools -->
+            <div class="tool-section">
+                <h4>Shape Tools</h4>
+                <div class="tool-grid">
+                    <button class="tool-btn" data-tool="line" title="Line">
+                        <span class="tool-icon">📏</span>
+                        <span class="tool-name">Line</span>
+                    </button>
+                    <button class="tool-btn" data-tool="rectangle" title="Rectangle">
+                        <span class="tool-icon">⬜</span>
+                        <span class="tool-name">Rectangle</span>
+                    </button>
+                    <button class="tool-btn" data-tool="circle" title="Circle">
+                        <span class="tool-icon">⭕</span>
+                        <span class="tool-name">Circle</span>
+                    </button>
+                    <button class="tool-btn" data-tool="arrow" title="Arrow">
+                        <span class="tool-icon">➡️</span>
+                        <span class="tool-name">Arrow</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Text Tools -->
+            <div class="tool-section">
+                <h4>Text Tools</h4>
+                <div class="tool-grid">
+                    <button class="tool-btn" data-tool="text" title="Text (T)">
+                        <span class="tool-icon">T</span>
+                        <span class="tool-name">Text</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Customization Panel -->
+            <div class="tool-section">
+                <h4>Customization</h4>
+                
+                <!-- Color Picker -->
+                <div class="control-group">
+                    <label class="control-label">Color</label>
+                    <div class="color-picker">
+                        <input type="color" id="color-input" value="#000000">
+                        <div class="color-presets" id="color-presets"></div>
+                    </div>
+                </div>
+
+                <!-- Brush Size -->
+                <div class="control-group">
+                    <label class="control-label">Size: <span id="size-value">5</span>px</label>
+                    <input type="range" id="size-slider" min="1" max="50" value="5" class="slider">
+                </div>
+
+                <!-- Opacity -->
+                <div class="control-group">
+                    <label class="control-label">Opacity: <span id="opacity-value">100</span>%</label>
+                    <input type="range" id="opacity-slider" min="10" max="100" value="100" class="slider">
+                </div>
+
+                <!-- Actions -->
+                <div class="control-group">
+                    <button class="btn btn--sm btn--secondary btn--full-width" id="clear-canvas">Clear Canvas</button>
+                    <button class="btn btn--sm btn--outline btn--full-width" id="toggle-grid">Toggle Grid</button>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <!-- Page Tabs -->
+            <div class="page-tabs">
+                <div class="tabs-list" id="tabs-list">
+                    <div class="tab active" data-page="0">
+                        <span class="tab-name">Page 1</span>
+                        <button class="tab-close">×</button>
+                    </div>
+                </div>
+                <button class="new-page-btn" id="new-page-btn">+ New Page</button>
+            </div>
+
+            <!-- Canvas Container -->
+            <div class="canvas-container" id="canvas-container">
+                <canvas id="drawing-canvas"></canvas>
+                <div class="canvas-grid" id="canvas-grid"></div>
+            </div>
+
+            <!-- Bottom Toolbar -->
+            <div class="bottom-toolbar">
+                <div class="toolbar-section">
+                    <button class="toolbar-btn" id="undo-btn" title="Undo (Ctrl+Z)">↶</button>
+                    <button class="toolbar-btn" id="redo-btn" title="Redo (Ctrl+Y)">↷</button>
+                </div>
+                <div class="toolbar-section">
+                    <button class="toolbar-btn" id="zoom-out" title="Zoom Out (-)">−</button>
+                    <span class="zoom-level" id="zoom-level">100%</span>
+                    <button class="toolbar-btn" id="zoom-in" title="Zoom In (+)">+</button>
+                </div>
+                <div class="toolbar-section">
+                    <button class="toolbar-btn" id="pan-mode" title="Pan Mode (Space)">✋</button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Template Selection Modal -->
+    <div class="modal hidden" id="template-modal">
+        <div class="modal-overlay" id="modal-overlay"></div>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Choose a Template</h2>
+                <button class="modal-close" id="modal-close">×</button>
+            </div>
+            <div class="modal-body">
+                <div class="template-grid" id="template-grid">
+                    <!-- Templates will be populated by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Export Modal -->
+    <div class="modal hidden" id="export-modal">
+        <div class="modal-overlay" id="export-overlay"></div>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Export Your Sketchbook</h2>
+                <button class="modal-close" id="export-close">×</button>
+            </div>
+            <div class="modal-body">
+                <div class="export-options">
+                    <button class="btn btn--primary btn--full-width" id="export-png">Export as PNG</button>
+                    <button class="btn btn--secondary btn--full-width" id="export-pdf">Export as PDF</button>
+                    <button class="btn btn--outline btn--full-width" id="export-svg">Export as SVG</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Text Input Modal -->
+    <div class="modal hidden" id="text-modal">
+        <div class="modal-overlay" id="text-overlay"></div>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Add Text</h2>
+                <button class="modal-close" id="text-close">×</button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label class="form-label">Text:</label>
+                    <textarea class="form-control" id="text-input" rows="3" placeholder="Enter your text here..."></textarea>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Font Size:</label>
+                    <input type="range" id="font-size-slider" min="12" max="72" value="16" class="slider">
+                    <span id="font-size-value">16px</span>
+                </div>
+                <button class="btn btn--primary btn--full-width" id="add-text-btn">Add Text</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile Sidebar Toggle -->
+    <button class="mobile-sidebar-toggle" id="mobile-sidebar-toggle">☰</button>
+
+    <script src="app.js"></script>
+</body>
+</html>
